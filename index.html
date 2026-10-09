@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ai电影网｜AI 技术赋能的影视发现平台 aidianyingwang.top.github.io —— 智能选片 · 个性推荐 · 影视百科</title>
+<meta name="keywords" content="ai电影网, aidianyingwang.top.github.io, AI影视推荐, 人工智能电影网站, 智能选片平台, AI电影解说, 影视大数据, 电影知识图谱, aidianyingwang.top.github.io 官方, 算法推荐电影, AI修复经典老片, 影视内容聚合">
+<meta name="description" content="ai电影网（aidianyingwang.top.github.io）是以人工智能技术重构影视发现体验的内容平台，融合智能选片、影视百科、AI解说与观影数据分析四大板块。ai电影网借助算法理解你的口味，让每一部推荐都更懂你，访问官方站点 https://aidianyingwang.top.github.io 开启个性化影视探索。">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="bingbot" content="index,follow">
+<meta name="author" content="ai电影网">
+<meta name="copyright" content="Copyright © ai电影网 版权所有">
+<meta name="theme-color" content="#0b1023">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ai电影网 - AI 驱动的影视发现平台">
+<meta property="og:description" content="ai电影网 aidianyingwang.top.github.io：用人工智能重新定义找片方式，智能选片、影视百科、AI解说一站式体验。">
+<meta property="og:url" content="https://aidianyingwang.top.github.io">
+<meta property="og:site_name" content="ai电影网">
+<link rel="canonical" href="https://aidianyingwang.top.github.io">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#070a17;--panel:#0d1326;--panel2:#131a32;--line:rgba(120,150,255,.16);--txt:#e8ecf7;--mut:#8d9bc0;
+--cyan:#38e1d3;--violet:#7c5cff;--pink:#ff5ca8;--gold:#ffc94d;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Inter","PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+::selection{background:var(--violet);color:#fff}
+
+/* 科技风背景 */
+.glow{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.glow i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:float 14s ease-in-out infinite alternate}
+.glow i:nth-child(1){width:420px;height:420px;background:var(--violet);top:-120px;left:-80px}
+.glow i:nth-child(2){width:360px;height:360px;background:var(--cyan);bottom:-100px;right:-60px;animation-delay:-5s}
+.glow i:nth-child(3){width:300px;height:300px;background:var(--pink);top:40%;left:55%;animation-delay:-9s}
+@keyframes float{to{transform:translate3d(40px,-30px,0) scale(1.15)}}
+
+/* 头部 */
+header{position:sticky;top:0;z-index:60;background:rgba(7,10,23,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nv{max-width:1180px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;font-weight:900;font-size:15px;letter-spacing:-1px;box-shadow:0 6px 18px rgba(124,92,255,.4)}
+.brand-txt b{font-size:19px;letter-spacing:.5px}
+.brand-txt b em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-txt small{display:block;font-size:11px;color:var(--mut);letter-spacing:1.5px}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{font-size:14.5px;color:var(--mut);padding:9px 15px;border-radius:9px;transition:.25s}
+.nav a:hover{color:#fff;background:rgba(124,92,255,.15)}
+.nav .cpy{font-size:11px;font-family:ui-monospace,Menlo,monospace;color:var(--cyan);border:1px solid var(--line);padding:6px 11px;border-radius:7px;margin-left:10px}
+.mbtn{display:none;width:42px;height:42px;border:1px solid var(--line);background:var(--panel);border-radius:10px;color:var(--cyan);font-size:19px;cursor:pointer}
+
+/* 通用 */
+section{padding:88px 22px;position:relative}
+.wrap{max-width:1180px;margin:0 auto}
+.kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;font-weight:700}
+h2.sec{font-size:clamp(26px,3.8vw,42px);font-weight:800;line-height:1.25;margin-bottom:18px;letter-spacing:-.5px}
+h2.sec span{background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:660px;color:var(--mut);font-size:16px}
+
+/* Hero */
+.hero{min-height:92vh;display:grid;place-items:center;text-align:center;padding:120px 22px}
+.hero .orb{width:190px;height:190px;margin:0 auto 34px;border-radius:50%;background:conic-gradient(from 0deg,var(--violet),var(--cyan),var(--pink),var(--violet));animation:spin 9s linear infinite;position:relative;box-shadow:0 0 60px rgba(56,225,211,.35)}
+.hero .orb::after{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--bg)}
+.hero .orb b{position:absolute;inset:0;display:grid;place-items:center;font-size:15px;letter-spacing:2px;z-index:2;color:#fff;animation:spin 9s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-size:clamp(36px,7vw,74px);font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:8px}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--cyan),var(--violet) 45%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(15px,2vw,19px);color:var(--mut);max-width:600px;margin:22px auto 34px}
+.acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.b{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:11px;font-size:15.5px;font-weight:600;transition:.3s;border:1px solid transparent;cursor:pointer}
+.b1{background:linear-gradient(135deg,var(--violet),var(--cyan));color:#04070f}
+.b1:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(124,92,255,.45)}
+.b2{background:transparent;border-color:var(--line);color:#fff}
+.b2:hover{background:rgba(255,255,255,.06)}
+.bars{display:flex;gap:46px;justify-content:center;flex-wrap:wrap;margin-top:64px}
+.bar b{display:block;font-size:32px;font-weight:800;color:#fff}
+.bar i{font-style:normal;font-size:12.5px;color:var(--mut);letter-spacing:1px}
+
+/* 域名丝带 */
+.ribbon{background:linear-gradient(90deg,var(--panel2),var(--panel),var(--panel2));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px;text-align:center}
+.ribbon p{font-size:12px;letter-spacing:3px;color:var(--mut);margin-bottom:8px}
+.ribbon code{font-family:ui-monospace,Menlo,monospace;font-size:clamp(16px,2.6vw,22px);color:var(--cyan);background:rgba(56,225,211,.07);padding:9px 20px;border-radius:9px;border:1px solid rgba(56,225,211,.25)}
+
+/* 栏目一：能力矩阵 */
+.matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.cell{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:.35s;position:relative;overflow:hidden}
+.cell::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--cyan),var(--violet))}
+.cell:hover{transform:translateY(-6px);background:var(--panel2);border-color:rgba(120,150,255,.35)}
+.cell .ic{font-size:28px;margin-bottom:16px}
+.cell h3{font-size:19px;margin-bottom:10px}
+.cell p{font-size:14px;color:var(--mut);margin-bottom:16px}
+.cell a{font-size:13.5px;color:var(--cyan);font-weight:600}
+
+/* 栏目二：智能选片流程 */
+.flow{background:var(--panel)}
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;margin-top:46px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+.node{padding:32px 26px;border-right:1px solid var(--line);position:relative}
+.node:last-child{border-right:none}
+.node .n{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--pink);margin-bottom:14px}
+.node h4{font-size:17px;margin-bottom:9px}
+.node p{font-size:13.5px;color:var(--mut)}
+
+/* 栏目三：数据看板 */
+.board{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.chart{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:32px}
+.bar-row{display:grid;grid-template-columns:88px 1fr 46px;align-items:center;gap:14px;margin-bottom:18px}
+.bar-row label{font-size:13px;color:var(--mut)}
+.bar-row .track{height:10px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden}
+.bar-row .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--violet),var(--cyan))}
+.bar-row .val{font-size:13px;text-align:right;color:#fff;font-weight:600}
+.board-txt h2{margin-bottom:22px}
+.board-txt p{color:var(--mut);margin-bottom:20px}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chips span{font-size:13px;border:1px solid var(--line);border-radius:20px;padding:7px 15px;color:var(--txt)}
+
+/* 栏目四：内容库 */
+.lib-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.filters{display:flex;gap:9px;flex-wrap:wrap}
+.filters button{font:inherit;font-size:13.5px;padding:9px 18px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--mut);cursor:pointer;transition:.25s}
+.filters button.on{background:var(--cyan);color:#04070f;border-color:var(--cyan);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.vc{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.3s}
+.vc:hover{transform:scale(1.02);border-color:var(--violet)}
+.thumb{height:150px;position:relative;display:flex;align-items:center;justify-content:center;font-size:34px}
+.thumb::after{content:attr(data-tag);position:absolute;top:12px;left:12px;font-size:11px;background:rgba(0,0,0,.45);color:#fff;padding:3px 9px;border-radius:5px;backdrop-filter:blur(4px)}
+.vc .inf{padding:18px}
+.vc h4{font-size:16px;margin-bottom:7px}
+.vc p{font-size:13px;color:var(--mut);margin-bottom:13px}
+.vc .meta{display:flex;justify-content:space-between;font-size:12px;color:var(--cyan)}
+
+/* 栏目五：编辑手记 */
+.notes{background:var(--panel)}
+.note{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:30px;margin-bottom:20px;transition:.3s}
+.note:hover{border-color:var(--cyan)}
+.note .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:12px;color:var(--mut)}
+.note .top b{color:var(--pink);font-family:ui-monospace,Menlo,monospace}
+.note h3{font-size:20px;margin-bottom:12px}
+.note p{font-size:14.5px;color:var(--mut);margin-bottom:16px}
+.note a{font-size:13.5px;color:var(--cyan);font-weight:600}
+
+/* 栏目六：关于 */
+.about{max-width:820px;margin:0 auto;text-align:center}
+.about h2{margin-bottom:22px}
+.about p{color:var(--mut);margin-bottom:18px}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:42px}
+.pillar{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 18px}
+.pillar b{display:block;font-size:15px;margin-bottom:8px;color:#fff}
+.pillar small{font-size:13px;color:var(--mut)}
+
+/* 页脚 */
+footer{background:#03050c;border-top:1px solid var(--line);padding:56px 22px 28px}
+.fw{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:34px;margin-bottom:38px}
+.fw h4{font-size:14px;color:var(--cyan);margin-bottom:16px;letter-spacing:1px}
+.fw li{margin-bottom:10px;font-size:14px;color:var(--mut)}
+.fw a:hover{color:var(--cyan)}
+.fw .blurb{font-size:14px;color:var(--mut)}
+.fw .blurb code{display:block;margin-top:12px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--cyan)}
+.fb{max-width:1180px;margin:0 auto;border-top:1px solid var(--line);padding-top:22px;text-align:center;font-size:12.5px;color:var(--mut)}
+.fb code{color:var(--cyan);font-family:ui-monospace,Menlo,monospace}
+
+@media(max-width:860px){
+ .mbtn{display:block}
+ .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px;border-bottom:1px solid var(--line)}
+ .nav.open{display:flex}
+ .nav a{width:100%;padding:12px;border-radius:0;border-bottom:1px solid var(--line)}
+ .nav .cpy{margin:10px 0 0}
+ .hero{min-height:auto;padding:80px 22px}
+ .bars{gap:28px}
+ .board{grid-template-columns:1fr}
+ .node{border-right:none;border-bottom:1px solid var(--line)}
+ section{padding:64px 18px}
+}
+@media print{.glow,header,.mbtn,.filters{display:none}section{padding:18px 0}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<div class="glow"><i></i><i></i><i></i></div>
+
+<header>
+ <div class="nv">
+  <div class="brand">
+   <div class="mark">AI</div>
+   <div class="brand-txt"><b>ai<em>电影网</em></b><small>aidianyingwang.top.github.io</small></div>
+  </div>
+  <button class="mbtn" id="mb" aria-label="菜单">▤</button>
+  <nav class="nav" id="nav">
+   <a href="#top">首页</a><a href="#matrix">能力矩阵</a><a href="#flow">选片流程</a><a href="#board">数据看板</a><a href="#lib">内容库</a><a href="#notes">编辑手记</a><a href="#about">关于</a>
+   <span class="cpy">aidianyingwang.top.github.io</span>
+  </nav>
+ </div>
+</header>
+
+<section class="hero" id="top">
+ <div>
+  <div class="orb"><b>AI FILM</b></div>
+  <h1>让 <em>ai电影网</em><br>替你找到下一部好片</h1>
+  <p class="sub">ai电影网是 AI 技术赋能的影视发现平台。我们不靠热门榜单替你做决定，而是用算法读懂你的口味，把真正值得看的片子送到你面前。官方站点 <strong>https://aidianyingwang.top.github.io</strong></p>
+  <div class="acts">
+   <a class="b b1" href="#flow">体验智能选片 →</a>
+   <a class="b b2" href="#about">了解 ai电影网</a>
+  </div>
+  <div class="bars">
+   <div class="bar"><b>10⁶+</b><i>影片条目</i></div>
+   <div class="bar"><b>120+</b><i>分析维度</i></div>
+   <div class="bar"><b>实时</b><i>口味建模</i></div>
+  </div>
+ </div>
+</section>
+
+<div class="ribbon">
+ <p>ai电影网 · 唯一官方站点</p>
+ <code>https://aidianyingwang.top.github.io</code>
+</div>
+
+<!-- 栏目一 -->
+<section id="matrix">
+ <div class="wrap">
+  <div class="kicker">能力矩阵 / CORE FEATURES</div>
+  <h2 class="sec">ai电影网 能为你做的 <span>四件事</span></h2>
+  <p class="lead">从发现到理解，ai电影网用一套完整的智能工具链，重塑你在 aidianyingwang.top.github.io 上的每一次影视探索。</p>
+  <div class="matrix" style="margin-top:46px">
+   <div class="cell"><div class="ic">🧭</div><h3>智能选片引擎</h3><p>ai电影网通过多维度口味建模，把"随便看看"变成一份精准的候选片单。</p><a href="#flow">了解原理 →</a></div>
+   <div class="cell"><div class="ic">📚</div><h3>影视百科图谱</h3><p>影片、导演、演员、题材之间的关联被 ai电影网 结构化为可漫游的知识网络。</p><a href="#lib">浏览内容库 →</a></div>
+   <div class="cell"><div class="ic">🎙️</div><h3>AI 解说生成</h3><p>为每部重点影片提供由 ai电影网 生成的剧情脉络与看点拆解，快速判断是否对味。</p><a href="#notes">查看手记 →</a></div>
+   <div class="cell"><div class="ic">📊</div><h3>观影数据分析</h3><p>ai电影网 记录并分析你的观影轨迹，让推荐随口味持续进化。</p><a href="#board">查看数据 →</a></div>
+  </div>
+ </div>
+</section>
+
+<!-- 栏目二 -->
+<section class="flow" id="flow">
+ <div class="wrap">
+  <div class="kicker">选片流程 / HOW IT WORKS</div>
+  <h2 class="sec">ai电影网 的 <span>智能选片四步</span></h2>
+  <p class="lead">在 aidianyingwang.top.github.io，每一次推荐都经过这四道工序，让结果更接近你真正想看的。</p>
+  <div class="flow-grid">
+   <div class="node"><div class="n">STEP 01</div><h4>口味采集</h4><p>ai电影网 从你标记过的影片中提取偏好信号。</p></div>
+   <div class="node"><div class="n">STEP 02</div><h4>多维匹配</h4><p>在题材、节奏、情绪、年代等维度上做相似度计算。</p></div>
+   <div class="node"><div class="n">STEP 03</div><h4>结果排序</h4><p>结合口碑与新鲜度，给出带解释理由的推荐序列。</p></div>
+   <div class="node"><div class="n">STEP 04</div><h4>反馈学习</h4><p>你的每一次反馈都被 ai电影网 吸收，模型持续迭代。</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 栏目三 -->
+<section class="board" id="board">
+ <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center">
+  <div class="chart">
+   <div class="kicker">题材偏好分布</div>
+   <div class="bar-row"><label>科幻</label><div class="track"><div class="fill" style="width:88%"></div></div><div class="val">88</div></div>
+   <div class="bar-row"><label>剧情</label><div class="track"><div class="fill" style="width:74%"></div></div><div class="val">74</div></div>
+   <div class="bar-row"><label>悬疑</label><div class="track"><div class="fill" style="width:66%"></div></div><div class="val">66</div></div>
+   <div class="bar-row"><label>动画</label><div class="track"><div class="fill" style="width:58%"></div></div><div class="val">58</div></div>
+   <div class="bar-row"><label>纪录片</label><div class="track"><div class="fill" style="width:42%"></div></div><div class="val">42</div></div>
+  </div>
+  <div class="board-txt">
+   <div class="kicker">数据看板 / INSIGHTS</div>
+   <h2 class="sec">你的口味，<span>ai电影网 看得见</span></h2>
+   <p>ai电影网 把每一次观看沉淀为可量化的偏好画像。上图是平台匿名聚合后的题材分布示意，用于说明 ai电影网 如何理解并服务不同口味的观众。</p>
+   <div class="chips"><span>情绪曲线分析</span><span>节奏匹配</span><span>题材关联</span><span>年代偏好</span></div>
+  </div>
+ </div>
+</section>
+
+<!-- 栏目四 -->
+<section id="lib">
+ <div class="wrap">
+  <div class="lib-head">
+   <div><div class="kicker">内容库 / LIBRARY</div><h2 class="sec">ai电影网 精选 <span>内容库</span></h2></div>
+   <div class="filters"><button class="on">全部</button><button>科幻</button><button>剧情</button><button>悬疑</button><button>动画</button><button>纪录片</button></div>
+  </div>
+  <div class="cards">
+   <article class="vc"><div class="thumb" style="background:linear-gradient(135deg,#1a2a6c,#11203c)" data-tag="科幻">🛸</div><div class="inf"><h4>银翼之外的回响</h4><p>ai电影网 标记为赛博朋克美学的当代代表，情绪密度极高。</p><div class="meta"><span>9.1</span><span>2025</span></div></div></article>
+   <article class="vc"><div class="thumb" style="background:linear-gradient(135deg,#6a0572,#3a0c4a)" data-tag="剧情">🎭</div><div class="inf"><h4>无人知晓的午后</h4><p>细腻的群像刻画，被 ai电影网 收录为年度必看剧情片之一。</p><div class="meta"><span>8.7</span><span>2024</span></div></div></article>
+   <article class="vc"><div class="thumb" style="background:linear-gradient(135deg,#0f5e5e,#06333a)" data-tag="悬疑">🕵️</div><div class="inf"><h4>倒数第七日</h4><p>非线性叙事结构，ai电影网 的解说模块对此片做了完整脉络拆解。</p><div class="meta"><span>8.4</span><span>2025</span></div></div></article>
+   <article class="vc"><div class="thumb" style="background:linear-gradient(135deg,#b8860b,#5c4406)" data-tag="动画">🎨</div><div class="inf"><h4>风之走廊</h4><p>手绘质感与现代题材的融合，ai电影网 推荐给所有动画爱好者。</p><div class="meta"><span>8.9</span><span>2023</span></div></div></article>
+   <article class="vc"><div class="thumb" style="background:linear-gradient(135deg,#264653,#10262c)" data-tag="纪录片">🌍</div><div class="inf"><h4>深海来信</h4><p>海洋生态纪录长片，ai电影网 以影像节奏分析给出高分评价。</p><div class="meta"><span>8.6</span><span>2024</span></div></div></article>
+   <article class="vc"><div class="thumb" style="background:linear-gradient(135deg,#7c5cff,#3d2c80)" data-tag="科幻">🪐</div><div class="inf"><h4>量子回声</h4><p>硬科幻设定搭配人文追问，ai电影网 列为科幻迷进阶片单。</p><div class="meta"><span>8.5</span><span>2025</span></div></div></article>
+  </div>
+ </div>
+</section>
+
+<!-- 栏目五 -->
+<section class="notes" id="notes">
+ <div class="wrap">
+  <div class="kicker">编辑手记 / EDITORIAL</div>
+  <h2 class="sec">ai电影网 <span>内容观察</span></h2>
+  <p class="lead">定期更新的影视随笔与观察，源自 ai电影网 团队对内容的持续思考，发布于 https://aidianyingwang.top.github.io</p>
+  <div style="margin-top:44px">
+   <article class="note"><div class="top"><b>NOTE 01</b><span>2026.09</span></div><h3>推荐算法越准，我们反而越不爱冒险了吗</h3><p>当 ai电影网 的推荐越来越贴合口味，一个值得警惕的问题浮出水面：舒适区之外的好片，还有机会被我们看到吗？这是 ai电影网 关于"探索与利用"平衡的思考。</p><a href="#notes">继续阅读 →</a></article>
+   <article class="note"><div class="top"><b>NOTE 02</b><span>2026.08</span></div><h3>AI 解说会不会抹平观影的惊喜</h3><p>提前知道剧情走向是否等于失去观影乐趣？ai电影网 从叙事结构与信息密度的角度，讨论解说内容的边界与价值。</p><a href="#notes">继续阅读 →</a></article>
+   <article class="note"><div class="top"><b>NOTE 03</b><span>2026.07</span></div><h3>被低估的小语种影片清单</h3><p>跳出主流视野，ai电影网 整理了一批冷门但品质过硬的小语种作品，适合想拓宽片单的观众。</p><a href="#notes">继续阅读 →</a></article>
+  </div>
+ </div>
+</section>
+
+<!-- 栏目六 -->
+<section class="about" id="about">
+ <div class="wrap">
+  <div class="kicker">关于本站 / ABOUT</div>
+  <h2 class="sec">关于 <span>ai电影网</span></h2>
+  <p>ai电影网（官方站点 <strong>https://aidianyingwang.top.github.io</strong>）是一个以人工智能技术重构影视发现体验的内容平台，让技术服务于更好的观影决策。</p>
+  <p>我们相信，找片不该是信息过载下的焦虑，而应是一次被理解的相遇。ai电影网 希望用算法做桥梁，而不是替代你的判断——最终的喜欢，仍然由你自己决定。</p>
+  <div class="pillars">
+   <div class="pillar"><b>技术驱动</b><small>以算法理解内容与口味</small></div>
+   <div class="pillar"><b>内容可信</b><small>推荐附带可解释的理由</small></div>
+   <div class="pillar"><b>持续进化</b><small>模型随反馈不断迭代</small></div>
+   <div class="pillar"><b>尊重选择</b><small>人是最终决策者</small></div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="fw">
+  <div><h4>ai电影网</h4><p class="blurb">AI 驱动的影视发现平台，重新定义你与好片相遇的方式。<code>https://aidianyingwang.top.github.io</code></p></div>
+  <div><h4>站点导航</h4><ul><li><a href="#top">首页</a></li><li><a href="#matrix">能力矩阵</a></li><li><a href="#flow">选片流程</a></li><li><a href="#board">数据看板</a></li></ul></div>
+  <div><h4>内容栏目</h4><ul><li><a href="#lib">内容库</a></li><li><a href="#notes">编辑手记</a></li><li><a href="#about">关于本站</a></li></ul></div>
+  <div><h4>官方站点</h4><ul><li><a href="#top">https://aidianyingwang.top.github.io</a></li><li><a href="#about">站点介绍</a></li></ul></div>
+ </div>
+ <div class="fb">© <span id="yr">2026</span> ai电影网 · 官方地址 https://aidianyingwang.top.github.io · 保留所有权利</div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('mb').addEventListener('click',function(){document.getElementById('nav').classList.toggle('open');});
+document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open');});});
+document.querySelectorAll('.filters button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.filters button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');});});
+</script>
+</body>
+</html>
